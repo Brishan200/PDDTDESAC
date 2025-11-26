@@ -816,7 +816,6 @@ ggplot(renyi_summary %>%
 ggsave("C:/Resources/Campus Work/PhD/DATA/BioSCape/figures/renyi.jpg",
        width = 18, height = 14, dpi = 600)
 
-
 ##
 
 #  fine scale spatial-temporal -----------------------------------------------------
