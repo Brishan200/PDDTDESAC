@@ -768,7 +768,7 @@ renyi_df <- bind_rows(renyi_list)
 
 # 3. Summarise (mean + sd) per site × tow_type × alpha
 renyi_summary <- renyi_df %>%
-  mutate(day_label = recode(as.character(date_sampled), !!!custom_labels)) %>% 
+  mutate(day_label = recode(as.character(date_sampled), !!!custom_labels2)) %>% 
   group_by(site, day_label, alpha) %>%
   summarise(
     mean_renyi = mean(renyi),
@@ -791,10 +791,10 @@ ggplot(renyi_summary %>%
                                           "SHB" = "St. Helena Bay",
                                           "WB" = "Walker Bay"))) +
   scale_x_continuous(breaks = alpha_vals) +
-  scale_color_manual(values =  c("gold","purple", "steelblue",
-                                 "purple", "firebrick", "purple")) +
-  scale_fill_manual(values =  c("gold","purple", "steelblue",
-                                "purple", "firebrick", "purple")) +
+  scale_color_manual(values =  c("steelblue",
+                                  "firebrick")) +
+  scale_fill_manual(values =  c( "steelblue",
+                                 "firebrick")) +
   labs(
     title = "",
     x = "Renyi alpha (α)",
@@ -814,7 +814,7 @@ ggplot(renyi_summary %>%
   )
 
 ggsave("C:/Resources/Campus Work/PhD/DATA/BioSCape/figures/renyi.jpg",
-       width = 18, height = 14, dpi = 300)
+       width = 18, height = 14, dpi = 600)
 
 
 ##
